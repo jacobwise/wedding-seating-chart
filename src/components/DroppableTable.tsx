@@ -5,7 +5,6 @@ import {
   useDroppable,
 } from '@dnd-kit/core'
 import type { Guest, Table } from '../types'
-import { X } from 'lucide-react';
 
 
 const DroppableSeat = memo(({ tableId, seatNumber, tableRadius, angle, currentGuest }: { tableId: string; seatNumber: number; tableRadius: number; angle: number; currentGuest?: Guest }) => {
@@ -41,7 +40,7 @@ const DroppableSeat = memo(({ tableId, seatNumber, tableRadius, angle, currentGu
   )
 })
 
-function DroppableTable({ table, onRemove, guests, selectedTableId, onTableSelect, onGuestRemove, onTableRename, onClearTable }: { table: Table; onRemove: (id: string) => void; guests: Guest[]; selectedTableId: string | null; onTableSelect: (tableId: string | null) => void; onGuestRemove: (guestId: string) => void; onTableRename: (tableId: string, newName: string) => void; onClearTable: (tableId: string) => void }) {
+function DroppableTable({ table, guests, selectedTableId, onTableSelect, onGuestRemove, onTableRename }: { table: Table; onRemove: (id: string) => void; guests: Guest[]; selectedTableId: string | null; onTableSelect: (tableId: string | null) => void; onGuestRemove: (guestId: string) => void; onTableRename: (tableId: string, newName: string) => void; onClearTable: (tableId: string) => void }) {
   const { setNodeRef, isOver } = useDroppable({
     id: table.id,
     data: { type: 'table', table },

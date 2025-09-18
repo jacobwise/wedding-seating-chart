@@ -138,7 +138,7 @@ function TableSeatView({ table, guests, onGuestRemove, onClearTable, onRemoveTab
           </div>
           
           {/* Seat indicators around the table */}
-          {seats.map(({ seatNumber, guest }, index) => {
+          {seats.map(({ seatNumber, guest }) => {
             const angle = (seatNumber / table.capacity) * 2 * Math.PI - (Math.PI / 2)
             const radius = 45
             const x = Math.cos(angle) * radius
